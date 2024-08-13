@@ -1,6 +1,4 @@
-const apiKey = 'fc183826ca2044c8a1c14432241208'
-// http://api.weatherapi.com/v1/current.json?key=fc183826ca2044c8a1c14432241208&q=London&aqi=no
-
+const apiKey = '' // paste api key here
 
 const searchBtn = document.querySelector('#search-button')
 const weatherInfo = document.querySelector('#weather-info')
@@ -24,7 +22,8 @@ searchBtn.addEventListener('click', () => {
     async function getData(apiKey, input) {
         try {
             const location = input.value
-            const promise = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`)
+
+            const promise = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`)
             const result = await promise.json()
             return accessData(result)
         }
@@ -53,8 +52,8 @@ function accessData(data) {
     currentDate.innerText = date
     currentLocation.innerText = `${data.location.name}, ${data.location.region}, ${data.location.country} `
     currTemp.innerText = Math.round(data.current.temp_c)
-    windSpeed.innerText = data.current.wind_kph
-    humidity.innerText = data.current.humidity
+    windSpeed.innerText = `${data.current.wind_kph} km/h`
+    humidity.innerText = `${data.current.humidity}%`
 }
 
 
