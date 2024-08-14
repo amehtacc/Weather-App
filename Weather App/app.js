@@ -11,7 +11,7 @@ searchBtn.addEventListener('click', () => {
         message.innerText = 'Please enter a location'
         return
     }
-    if((weatherInfo.style.display === "none" || weatherInfo.style.display === "none") && input.value) {
+    if((weatherInfo.style.display === "none" || weatherInfo.style.display === "") && input.value) {
         message.innerText = null;
         weatherInfo.style.display = "flex"
     }
