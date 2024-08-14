@@ -1,4 +1,6 @@
-const apiKey = '' // paste api key here
+const apiKey = '6c182f4256544ca7b2484446241308'
+// https://api.weatherapi.com/v1/current.json?key=6c182f4256544ca7b2484446241308&q=London&aqi=no
+
 
 const searchBtn = document.querySelector('#search-button')
 const weatherInfo = document.querySelector('#weather-info')
@@ -45,8 +47,7 @@ const windSpeed = document.querySelector('.wind-speed')
 const humidity = document.querySelector('.humidity')
 
 function accessData(data) {
-    const weekDays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-    const day = weekDays[data.current.is_day]
+    const day = getDay(data.location.localtime)
     today.innerText = day
     const date = convertDate(data.location.localtime)
     currentDate.innerText = date
@@ -73,4 +74,18 @@ function convertDate(currentDate){
 
     const newFormatedDate = `${date} ${month}, ${year}`
     return newFormatedDate
+}
+
+/* here I will get Day from current date */
+function getDay(currentDate) {
+    const currDate = currentDate
+
+    const newDate = new Date(currDate)
+
+    const day = newDate.getDay()
+
+    const weekDays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    const currDay = weekDays[day]
+
+    return currDay
 }
