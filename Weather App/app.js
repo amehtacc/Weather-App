@@ -1,6 +1,4 @@
-const apiKey = '6c182f4256544ca7b2484446241308'
-// https://api.weatherapi.com/v1/current.json?key=6c182f4256544ca7b2484446241308&q=London&aqi=no
-
+const apiKey = '' // paste api key here
 
 const searchBtn = document.querySelector('#search-button')
 const weatherInfo = document.querySelector('#weather-info')
@@ -24,7 +22,6 @@ searchBtn.addEventListener('click', () => {
     async function getData(apiKey, input) {
         try {
             const location = input.value
-
             const promise = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`)
             const result = await promise.json()
             return accessData(result)
