@@ -1,4 +1,4 @@
-const apiKey = '6c182f4256544ca7b2484446241308'
+const apiKey = '' // paste api key here
 
 const searchBtn = document.querySelector('#search-button')
 const weatherInfo = document.querySelector('#weather-info')
